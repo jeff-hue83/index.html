@@ -1,215 +1,104 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl"> <!-- Added dir="rtl" for Arabic language support -->
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeddah City | بوابة جدة</title>
-    <!-- The CSS provided in the prompt is used here -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
+<meta charset="UTF-8">
+<title>المندق</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
-        html { scroll-behavior: smooth; }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
 
-        body { 
-            background-color: #0b261a; 
-            background-image: url('https://images.unsplash.com/photo-1621215111956-6216447c2138?q=80&w=2070');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            color: #fff; 
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
+html { scroll-behavior: smooth; }
 
-        .background-wrap { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(135deg, rgba(11, 38, 26, 0.85), rgba(15, 60, 35, 0.75)); 
-            z-index: -1; 
-        }
+body { 
+    background-color: #0b261a; 
+    background-image: url('https://images.unsplash.com/photo-1621215111956-6216447c2138?q=80&w=2070');
+    background-size: cover; background-position: center; background-attachment: fixed;
+    color: #fff; 
+}
 
-        /* شريط تنقل أنحف */
-        .nav-city { 
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; display: flex; 
-            justify-content: space-between; align-items: center; 
-            background: rgba(10, 30, 20, 0.8); backdrop-filter: blur(10px); 
-            padding: 10px 40px; border-bottom: 2px solid #e2c775; 
-        }
-        .nav-city a { color: #fff; text-decoration: none; font-weight: bold; margin-left: 20px; transition: 0.3s; }
-        .nav-city a:hover { color: #e2c775; }
-        .brand { font-size: 1.5rem; color: #e2c775; font-weight: 900; }
+.background-wrap { 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+    background: linear-gradient(135deg, rgba(11,38,26,.85), rgba(15,60,35,.75)); 
+    z-index: -1; 
+}
 
-        /* هيدر صغير ومختلف عن الرئيسية */
-        .city-banner { 
-            margin-top: 60px; padding: 60px 20px 80px; text-align: center; 
-        }
-        .city-banner h1 { font-size: 4rem; color: #e2c775; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
-        .city-banner p { font-size: 1.5rem; color: #e0e0e0; }
+.nav-city {
+    position: fixed; top:0; left:0; width:100%; z-index:1000;
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(10,30,20,.8); padding:10px 40px; border-bottom:2px solid #e2c775;
+}
 
-        /* هيكل الـ Bento الجديد (مربعات متداخلة) */
-        .bento-container { max-width: 1100px; margin: -40px auto 50px; padding: 0 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; z-index: 2; }
+.nav-city a{color:#fff;text-decoration:none;font-weight:bold;margin-left:20px}
+.brand{color:#e2c775;font-weight:900;font-size:1.4rem}
 
-        .bento-box { 
-            background: rgba(10, 30, 20, 0.5); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); 
-            border: 1px solid rgba(226, 199, 117, 0.2); border-radius: 20px; padding: 30px; 
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); transition: 0.3s; 
-        }
-        .bento-box:hover { border-color: #e2c775; transform: translateY(-3px); }
+.city-banner{margin-top:70px;text-align:center;padding:50px}
+.city-banner h1{color:#e2c775;font-size:3rem}
+.city-banner p{color:#ddd}
 
-        /* التحكم بحجم المربعات */
-        .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
+.bento-container{
+max-width:1000px;margin:auto;display:grid;
+grid-template-columns:repeat(3,1fr);gap:20px;padding:20px}
 
-        .bento-box h3 { color: #e2c775; font-size: 1.8rem; margin-bottom: 15px; border-bottom: 2px dashed rgba(226, 199, 117, 0.3); padding-bottom: 10px; }
-        .bento-box p, .bento-box li { font-size: 1.1rem; line-height: 1.8; }
-        .bento-box ul { list-style-position: inside; }
+.bento-box{
+background:rgba(10,30,20,.6);border-radius:20px;padding:25px}
 
-        /* تنسيق الطقس الجديد */
-        .weather-bento { display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(226, 199, 117, 0.1), rgba(10, 30, 20, 0.6)); }
-        .weather-bento .degree { font-size: 4.5rem; color: #e2c775; font-weight: 900; line-height: 1; }
+.span-2{grid-column:span 2}
 
-        /* الأخبار بشكل عمودي مرتب */
-        .news-list { display: flex; flex-direction: column; gap: 15px; }
-        .news-item { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 12px; border-right: 4px solid #e2c775; }
-        .news-item h4 { color: #e2c775; margin-bottom: 5px; }
+.weather{text-align:center}
+.weather .degree{font-size:3rem;color:#e2c775}
 
-        /* الزر التفاعلي */
-        .interactive-btn { width: 100%; background: #e2c775; color: #0b261a; border: none; padding: 15px; font-size: 1.2rem; font-weight: bold; border-radius: 12px; cursor: pointer; transition: 0.3s; margin-top: 10px; }
-        .interactive-btn:hover { background: #f3d886; transform: scale(1.02); }
-
-        /* التجاوب مع الجوال */
-        @media (max-width: 768px) {
-            .bento-container { grid-template-columns: 1fr; }
-            .span-2, .span-3 { grid-column: span 1; }
-            .city-banner h1 { font-size: 3rem; }
-            .nav-city { flex-direction: column; gap: 10px; }
-            .nav-city div { margin-top: 10px; }
-        }
-
-        /* --- تنسيق حاوية الصورتين عشان تترتب جنب بعض --- */
-        .dual-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            grid-column: span 2;
-        }
-
-        /* تنسيق مربع الصورة الثابت */
-        .image-bento {
-            padding: 0 !important;
-            overflow: hidden;
-            height: 220px;
-            position: relative;
-            display: flex;
-            border-radius: 20px;
-            border: 1px solid rgba(226, 199, 117, 0.2);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .image-bento img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .image-bento:hover img {
-            transform: scale(1.08);
-        }
-
-        .image-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px 20px 15px;
-            background: linear-gradient(to top, rgba(11, 38, 26, 0.95), transparent);
-            color: #e2c775;
-            font-size: 1.2rem;
-            font-weight: 800;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
-            pointer-events: none;
-        }
-
-        /* الترتيب في شاشات الجوال */
-        @media (max-width: 768px) {
-            .dual-images {
-                grid-template-columns: 1fr;
-                grid-column: span 1;
-            }
-        }
-    </style>
+img{width:100%;border-radius:15px}
+</style>
 </head>
+
 <body>
 
-    <div class="background-wrap"></div>
+<div class="background-wrap"></div>
 
-    <!-- شريط تنقل أنحف -->
-    <nav class="nav-city">
-        <div class="brand">بوابة جدة</div>
-        <div>
-            <a href="#news">الأخبار</a>
-            <a href="#attractions">المعالم</a>
-            <a href="#events">الفعاليات</a>
-        </div>
-    </nav>
+<nav class="nav-city">
+<div class="brand">المندق</div>
+<div>
+<a href="#">عن المندق</a>
+<a href="#">الطقس</a>
+<a href="#">المعالم</a>
+</div>
+</nav>
 
-    <!-- هيدر صغير ومختلف عن الرئيسية -->
-    <header class="city-banner">
-        <h1>جدة، عروس البحر الأحمر</h1>
-        <p>اكتشف أحدث الأخبار والطقس والفعاليات في مدينتنا النابضة بالحياة.</p>
-    </header>
+<section class="city-banner">
+<h1>محافظة المندق</h1>
+<p>مدينة الضباب والطبيعة الخلابة</p>
+</section>
 
-    <!-- هيكل الـ Bento الجديد -->
-    <main class="bento-container">
+<section class="bento-container">
 
-        <!-- مربع الطقس -->
-        <div class="bento-box weather-bento">
-            <h3>الطقس غدًا (22 فبراير)</h3>
-            <p class="degree">27°C</p>
-            <p>مشمس وجميل</p>
-            <p>الرياح: شمالية غربية بسرعة 12 ميل/س</p>
-        </div>
+<div class="bento-box span-2">
+<h3>نبذة عن المندق</h3>
+<p>
+تقع محافظة المندق في منطقة الباحة، وتتميز بأجوائها الباردة والطبيعة الجبلية الجميلة والغابات الكثيفة.
+</p>
+</div>
 
-        <!-- مربع الأخبار الرئيسية -->
-        <div class="bento-box span-2" id="news">
-            <h3>أخبار عاجلة</h3>
-            <div class="news-list">
-                <div class="news-item">
-                    <h4>"سيرك دو لبنان" ينطلق في جدة ابتداءً من 20 مارس</h4>
-                    <p>يمكنكم حجز تذاكركم الآن عبر بلاتينوم ليست لتجربة لا تُنسى في خيمة السيرك مقابل رد سي مول.</p>
-                </div>
-                <div class="news-item">
-                    <h4>جدة تتصدر قائمة المدن السعودية في مؤشر جودة الحياة العالمي</h4>
-                    <p>تواصل المدينة نموها وتطورها لتصبح وجهة مثالية للعيش والزيارة.</p>
-                </div>
-                <div class="news-item">
-                    <h4>إطلاق خدمة PET/MRI الأولى من نوعها لتشخيص الزهايمر في جدة</h4>
-                    <p>مركز I-One للتصوير الجزيئي يقدم خدمة رائدة في المجال الطبي.</p>
-                </div>
-            </div>
-        </div>
+<div class="bento-box weather">
+<div class="degree">18°C</div>
+<p>طقس معتدل</p>
+</div>
 
-        <!-- حاوية الصور المزدوجة -->
-        <div class="dual-images" id="attractions">
-            <div class="image-bento">
-                <img src="https://images.unsplash.com" alt="Jeddah Floating Mosque">
-                <div class="image-overlay">مسجد الرحمة (المسجد العائم)</div>
-            </div>
-            <div class="image-bento">
-                <img src="https://images.unsplash.com" alt="Jeddah Corniche Waterfront">
-                <div class="image-overlay">كورنيش جدة الجديد</div>
-            </div>
-        </div>
-        
-        <!-- مربع الفعاليات -->
-        <div class="bento-box" id="events">
-            <h3>الفعاليات القادمة</h3>
-            <ul>
-                <li>**ليالي أبحر**: من 22 فبراير إلى 19 مارس</li>
-                <li>**عروض رمضان 2026**: إفطار وسحور مميز في فندق الريتز</li>
-                <li>**بطولة العالم للبلياردو**: تنطلق قريباً في جدة</li>
-            </ul>
-            <button class="interactive-btn">اكتشف المزيد من الفعاليات</button>
-        </div>
+<div class="bento-box span-2">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800">
+<p>مناظر جبلية ساحرة</p>
+</div>
 
-    </main>
+<div class="bento-box">
+<h3>أهم المعالم</h3>
+<ul>
+<li>منتزه الشكران</li>
+<li>جبال المندق</li>
+<li>الغابات الطبيعية</li>
+</ul>
+</div>
+
+</section>
 
 </body>
 </html>
