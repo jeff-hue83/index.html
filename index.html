@@ -1,104 +1,64 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>المندق</title>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap');
-
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
-html { scroll-behavior: smooth; }
-
-body { 
-    background-color: #0b261a; 
-    background-image: url('https://images.unsplash.com/photo-1621215111956-6216447c2138?q=80&w=2070');
-    background-size: cover; background-position: center; background-attachment: fixed;
-    color: #fff; 
-}
-
-.background-wrap { 
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-    background: linear-gradient(135deg, rgba(11,38,26,.85), rgba(15,60,35,.75)); 
-    z-index: -1; 
-}
-
-.nav-city {
-    position: fixed; top:0; left:0; width:100%; z-index:1000;
-    display:flex; justify-content:space-between; align-items:center;
-    background:rgba(10,30,20,.8); padding:10px 40px; border-bottom:2px solid #e2c775;
-}
-
-.nav-city a{color:#fff;text-decoration:none;font-weight:bold;margin-left:20px}
-.brand{color:#e2c775;font-weight:900;font-size:1.4rem}
-
-.city-banner{margin-top:70px;text-align:center;padding:50px}
-.city-banner h1{color:#e2c775;font-size:3rem}
-.city-banner p{color:#ddd}
-
-.bento-container{
-max-width:1000px;margin:auto;display:grid;
-grid-template-columns:repeat(3,1fr);gap:20px;padding:20px}
-
-.bento-box{
-background:rgba(10,30,20,.6);border-radius:20px;padding:25px}
-
-.span-2{grid-column:span 2}
-
-.weather{text-align:center}
-.weather .degree{font-size:3rem;color:#e2c775}
-
-img{width:100%;border-radius:15px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المندق</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef3f7;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #0b2e4f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 { margin: 0; font-size: 28px; }
+    p { line-height: 1.6; color: #333; padding: 10px; }
+    img { width: 100%; border-radius: 12px; }
+    .section {
+      margin: 18px 12px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="background-wrap"></div>
+<header>
+  <h1>المندق — الباحة</h1>
+</header>
 
-<nav class="nav-city">
-<div class="brand">المندق</div>
-<div>
-<a href="#">عن المندق</a>
-<a href="#">الطقس</a>
-<a href="#">المعالم</a>
-</div>
-</nav>
-
-<section class="city-banner">
-<h1>محافظة المندق</h1>
-<p>مدينة الضباب والطبيعة الخلابة</p>
-</section>
-
-<section class="bento-container">
-
-<div class="bento-box span-2">
-<h3>نبذة عن المندق</h3>
-<p>
-تقع محافظة المندق في منطقة الباحة، وتتميز بأجوائها الباردة والطبيعة الجبلية الجميلة والغابات الكثيفة.
-</p>
+<div class="section">
+  <h2>📍 الموقع</h2>
+  <p>المندق تقع في منطقة الباحة في المملكة العربية السعودية داخل جبال السروات وتتميز بطقسها البارد والضبابي خصوصًا في الصباح والمساء.</p>
 </div>
 
-<div class="bento-box weather">
-<div class="degree">18°C</div>
-<p>طقس معتدل</p>
+<div class="section">
+  <h2>🌫️ أجواء الضباب</h2>
+  <p>المنطقة تشتهر بكونها “مدينة الضباب” بسبب الضباب المتكرر فوق الجبال والتلال، مما يعطي المنظر جمال خاص مناسب للتصوير والطبيعة.</p>
 </div>
 
-<div class="bento-box span-2">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800">
-<p>مناظر جبلية ساحرة</p>
+<div class="section">
+  <h2>📸 صور من المندق</h2>
+  <img src="1.jpg" alt="صورة من المندق">
+  <p>صورة من المناظر الطبيعية في المندق.</p>
+
+  <img src="2.jpg" alt="صورة من المندق">
+  <p>صورة أخرى من الطبيعة الجبلية.</p>
 </div>
 
-<div class="bento-box">
-<h3>أهم المعالم</h3>
-<ul>
-<li>منتزه الشكران</li>
-<li>جبال المندق</li>
-<li>الغابات الطبيعية</li>
-</ul>
+<div class="section">
+  <h2>🌳 الطبيعة والأنشطة</h2>
+  <p>المنطقة مناسبة للنزهات العائلية، المشي في الطبيعة، والتصوير في أجواء هادئة وجميلة.</p>
 </div>
-
-</section>
 
 </body>
 </html>
